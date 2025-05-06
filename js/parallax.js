@@ -12,33 +12,26 @@ const layers = {
 
 function initParallax() {
     let ticking = false;
-    const update = () => {
+    
+    function update() {
         const scrollPos = window.pageYOffset;
         Object.entries(layers).forEach(([layer, speed]) => {
             const element = document.querySelector(`.${layer}-layer`);
             if (element) element.style.transform = `translateY(${scrollPos * speed}px)`;
         });
         ticking = false;
-    };
+    }
+
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(update);
             ticking = true;
         }
     });
-    update();
+    
+    // Set initial scene height
+    document.querySelector('.parallax-container').style.height = 
+        `${sceneOrder.length * 200}vh`;
 }
 
-window.addEventListener('load', () => {
-    document.querySelector('.loader').style.display = 'none';
-    initParallax();
-    
-    if (window.innerWidth < 768 && window.matchMedia("(orientation: portrait)").matches) {
-        document.body.insertAdjacentHTML('beforeend', `
-            <div class="orientation-alert">
-                <h2>For Best Experience</h2>
-                <p>Please rotate your device to landscape mode</p>
-            </div>
-        `);
-    }
-});
+window.addEventListener('load', initParallax);
