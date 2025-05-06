@@ -1,7 +1,7 @@
 {
-    "sky": "backgrounds/01_03_sky.webp",
-    "hyperdistal": "",
-    "distal": "backgrounds/01_03_distal.png",
-    "text": "scenes/01_03_text.md",
+    "sky": "assets/backgrounds/01_03_sky.webp",
+    "hyperdistal": "assets/backgrounds/01_03_hyperdistal.png",
+    "distal": "assets/backgrounds/01_03_distal.png",
+    "text": "assets/scenes/01_03_text.md",
     "audio": ""
 }
