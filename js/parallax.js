@@ -6,12 +6,15 @@ window.addEventListener('load', () => {
 
 function initParallax() {
     const layers = {
-        sky: 0,
-        hyperdistal: 0.05,
-        distal: 0.3,
-        character: 1,
-        text: 1,
-        proximal: 1.5
+        sky: 0,          // Static
+        hyperdistal: 0.02, // Barely moves
+        distal: 0.05,     // Very slight
+        close: 0.1,       // Gentle
+        closer: 0.15,     // Slightly more
+        frame: 0,         // Static
+        text: 1,          // Normal scroll
+        stickers: 1,      // Matches text
+        proximal: 1.2     // Slightly faster than text
     };
 
     // Set initial positions
