@@ -1,22 +1,22 @@
 {
     "sky": "assets/layers/1sky/01_01_sky.jpg",
-    "hyperdistal": "assets/layers/2hyperdistal/01_02_hyperdistal.png",
-    "distal": "assets/layers/3distal/01_03_distal.png",
+    "hyperdistal": "assets/layers/2hyperdistal/01_01_clouds.png",
+    "distal": "assets/layers/3distal/01_01_mountains.png",
     "close": "assets/layers/4close/01_01_rocks.png",
     "closer": "assets/layers/5closer/01_01_trees.png", 
     "frame": "assets/layers/9frame/01_01_frame.png",
     "stickers": [
         {
             "image": "assets/layers/7stickers/01_01_moon.png",
-            "x": "30%",
-            "y": "500px",
+            "x": "15%",
+            "y": "200px",
             "align": "left",
             "alt": "The pale moon shining through clouds"
         },
         {
             "image": "assets/layers/7stickers/01_01_shadow.png",
             "x": "70%",
-            "y": "250px",
+            "y": "150px",
             "align": "right",
             "alt": "Mysterious shadow figure"
         }
