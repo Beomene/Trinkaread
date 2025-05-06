@@ -4,7 +4,7 @@
     "distal": "assets/layers/3distal/01_01_distal.png",
     "close": "assets/layers/4close/01_01_close.png",
     "closer": "assets/layers/5closer/01_01_closer.png",
-    "frame": "assets/layers/9frame/01_01_frame.png",
+    "frame": "assets/layers/9frames/01_01_frame.png",
     "stickers": [
         {
             "image": "assets/layers/7stickers/01_01_stickerA.png",
