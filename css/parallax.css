@@ -1,7 +1,7 @@
 /* Parallax Container */
 .parallax-container {
     position: relative;
-    width: 100%;
+    width: auto;
     height: auto;
     min-height: 100vh;
 }
