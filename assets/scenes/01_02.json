@@ -1,0 +1,18 @@
+{
+    "sky": "assets/layers/1sky/01_02_sky.jpg",
+    "hyperdistal": "assets/layers/2hyperdistal/01_02_clouds.png",
+    "distal": "assets/layers/3distal/01_02_canyon.png",
+    "close": "assets/layers/4close/01_02_rocks.png",
+    "closer": "assets/layers/5closer/01_02_bushes.png",
+    "frame": "assets/layers/9frame/01_02_frame.png",
+    "stickers": [
+        {
+            "image": "assets/layers/7stickers/01_02_amulet.png",
+            "x": "20%",
+            "y": "30%",
+            "align": "left",
+            "alt": "Glowing amulet"
+        }
+    ],
+    "text": "assets/scenes/01_02_text.md"
+}

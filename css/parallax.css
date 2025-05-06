@@ -116,3 +116,7 @@
         width: 100% !important;
     }
 }
+
+[class*="-layer"] {
+    transition: transform 0.4s ease-out; /* Smoother parallax motion */
+}
