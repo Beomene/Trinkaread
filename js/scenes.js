@@ -1,20 +1,20 @@
-// Current scene management
+// Scene Manager with proper path handling
 let currentScene = null;
 
 async function loadScene(sceneId) {
     try {
         currentScene = sceneId;
         
-        // Show loader while loading
+        // Show loader
         document.querySelector('.loader').style.display = 'flex';
         document.querySelector('.loader').style.opacity = '1';
         
-        // Load scene configuration
+        // Load scene config
         const configRes = await fetch(`assets/scenes/${sceneId}.json`);
-        if (!configRes.ok) throw new Error(`Scene configuration not found: ${sceneId}`);
+        if (!configRes.ok) throw new Error(`Scene config not found: ${sceneId}`);
         const config = await configRes.json();
         
-        // Set layer images with error handling
+        // Helper function to set layer images
         const setLayerImage = (selector, src) => {
             if (!src) return;
             const element = document.querySelector(selector);
@@ -24,7 +24,7 @@ async function loadScene(sceneId) {
                     img.src = src;
                     img.style.display = 'block';
                     img.onerror = () => {
-                        console.warn(`Failed to load image: ${src}`);
+                        console.warn(`Failed to load: ${src}`);
                         img.style.display = 'none';
                     };
                 }
@@ -38,12 +38,12 @@ async function loadScene(sceneId) {
         setLayerImage('.close-layer', config.close);
         setLayerImage('.closer-layer', config.closer);
         setLayerImage('.frame-layer', config.frame);
-        
-        // Load and position stickers
+
+        // Load stickers
         const stickerLayer = document.querySelector('.sticker-layer');
         stickerLayer.innerHTML = '';
         
-        if (config.stickers && config.stickers.length > 0) {
+        if (config.stickers?.length) {
             config.stickers.forEach(sticker => {
                 const img = document.createElement('img');
                 img.src = sticker.image;
@@ -61,21 +61,22 @@ async function loadScene(sceneId) {
                 stickerLayer.appendChild(img);
             });
         }
-        
-        // Load text content
+
+        // Load and process text
         const textRes = await fetch(config.text);
         if (!textRes.ok) throw new Error(`Text content not found for: ${sceneId}`);
         let textContent = await textRes.text();
         
-        // Process markdown images into stickers
+        // Process markdown stickers (with proper path handling)
         textContent = textContent.replace(
             /!\[sticker-(left|right)\]\((.*?)\)/g, 
             (match, align, src) => {
-                return `<img src="${src}" class="sticker sticker-${align}" alt="" loading="lazy">`;
+                // Preserve full paths if they start with assets/
+                const finalSrc = src.startsWith('assets/') ? src : `assets/layers/7stickers/${src}`;
+                return `<img src="${finalSrc}" class="sticker sticker-${align}" alt="" loading="lazy">`;
             }
         );
         
-        // Apply text to container
         document.querySelector('.text-content').innerHTML = textContent;
         
         // Hide loader
@@ -90,18 +91,14 @@ async function loadScene(sceneId) {
             <div class="error">
                 <h2>Loading Error</h2>
                 <p>${error.message}</p>
-                <p>Please try refreshing the page.</p>
             </div>
         `;
-        
         document.querySelector('.loader').style.display = 'none';
     }
 }
 
-// Initialize first scene when DOM is ready
+// Initialize first scene
 document.addEventListener('DOMContentLoaded', () => {
-    // Load default scene or get from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const sceneParam = urlParams.get('scene');
-    loadScene(sceneParam || '01_01');
+    loadScene(urlParams.get('scene') || '01_01');
 });
