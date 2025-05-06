@@ -22,4 +22,11 @@ function initParallax() {
         ticking = false;
     };
     window.addEventListener('scroll', () => {
-        if (!t
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    });
+    update(); // Initialize positions
+}
+window.addEventListener('load', initParallax);
