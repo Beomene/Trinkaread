@@ -1,0 +1,76 @@
+/* Parallax Container */
+.parallax-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Base Layer Styles */
+.sky-layer,
+.hyperdistal-layer,
+.distal-layer,
+.character-layer,
+.proximal-layer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Individual Layer Adjustments */
+.sky-layer img {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    object-fit: cover;
+}
+
+.hyperdistal-layer {
+    transform: translateY(0);
+}
+
+.distal-layer {
+    transform: translateY(0);
+}
+
+.character-layer img {
+    position: absolute;
+    max-width: 30%;
+    height: auto;
+}
+
+.proximal-layer img {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Text Container */
+.text-container {
+    position: relative;
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 100vh 2rem 50vh; /* Vertical spacing */
+    z-index: 10;
+}
+
+.text-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    column-width: 320px;
+    column-gap: 4rem;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    shape-outside: margin-box;
+}
+
+/* Text Wrapping Around Characters */
+.character {
+    shape-outside: url('YOUR_CHARACTER_IMAGE_PATH.png');
+    shape-margin: 20px;
+}
