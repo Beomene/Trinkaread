@@ -4,27 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinkaread | Chapter 1</title>
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        img-src 'self' data:;
-        style-src 'self' 'unsafe-inline';
-        script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/parallax.css">
     <style>
         @font-face {
             font-family: 'ChelseaMarket';
-            src: url('assets/fonts/ChelseaMarket_Regular.woff2') format('woff2');
+            src: url('assets/others/fonts/ChelseaMarket_Regular.woff2') format('woff2');
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
     <div class="loader">
         <div class="loader-spinner"></div>
     </div>
 
-    <!-- Menu System -->
     <div class="menu-dots">•••</div>
     <div class="menu-content">
         <button id="sound-toggle">Sound: ON</button>
@@ -32,30 +26,27 @@
         <button id="bookmark-btn">Bookmark</button>
     </div>
 
-    <!-- Parallax Container -->
     <div class="parallax-container">
-        <!-- Background layers -->
-        <div class="sky-layer"><img></div>
-        <div class="hyperdistal-layer"><img></div>
-        <div class="distal-layer"><img></div>
-        <div class="close-layer"><img></div>
-        <div class="closer-layer"><img></div>
-    
-        <!-- Content layers -->
+        <!-- Background Layers -->
+        <div class="sky-layer"><img src="assets/layers/1sky/01_01_sky.webp" alt="Sky"></div>
+        <div class="hyperdistal-layer"><img src="assets/layers/2hyperdistal/01_01_clouds.png" alt="Clouds"></div>
+        <div class="distal-layer"><img src="assets/layers/3distal/01_01_mountains.png" alt="Mountains"></div>
+        <div class="close-layer"><img src="assets/layers/4close/01_01_rocks.png" alt="Rocks"></div>
+        <div class="closer-layer"><img src="assets/layers/5closer/01_01_trees.png" alt="Trees"></div>
+        
+        <!-- Content -->
         <div class="text-container">
             <div class="text-content"></div>
         </div>
-    
-        <!-- Foreground layers -->
+        
+        <!-- Foreground -->
         <div class="sticker-layer"></div>
         <div class="proximal-layer"></div>
-        <div class="frame-layer"><img></div>
+        <div class="frame-layer"><img src="assets/layers/9frame/01_01_frame.png" alt="Frame"></div>
     </div>
 
-    <!-- Next Chapter Button -->
     <button class="next-chapter-btn">Next Chapter →</button>
 
-    <!-- Scripts -->
     <script src="js/parallax.js"></script>
     <script src="js/scenes.js"></script>
     <script src="js/menu.js"></script>
