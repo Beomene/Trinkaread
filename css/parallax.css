@@ -74,3 +74,6 @@
     shape-outside: url('YOUR_CHARACTER_IMAGE_PATH.png');
     shape-margin: 20px;
 }
+.sky-layer { z-index: 1; }
+.hyperdistal-layer { z-index: 2; }
+.distal-layer { z-index: 3; }
