@@ -1,4 +1,3 @@
-/* Layer Base Styles */
 [class*="-layer"] {
     position: fixed;
     width: 100%;
@@ -7,41 +6,36 @@
     left: 0;
     pointer-events: none;
     will-change: transform;
-    backface-visibility: hidden;
+    transition: transform 0.4s ease-out;
 }
 
-/* Z-Index Hierarchy */
-.sky-layer { z-index: 1; }          /* Background sky (jpg) */
-.hyperdistal-layer { z-index: 2; }  /* Distant clouds/mountains */
-.distal-layer { z-index: 3; }       /* Mid-distance elements */
-.close-layer { z-index: 4; }        /* Nearby scenery */
-.closer-layer { z-index: 5; }       /* Closest background */
-.text-container { z-index: 6; }     /* Main content */
-.sticker-layer { z-index: 7; }      /* Text-wrapped images */
-.proximal-layer { z-index: 8; }     /* Foreground effects */
-.frame-layer { z-index: 9; }        /* Decorative frame (png) */
+.sky-layer { z-index: 1; }
+.hyperdistal-layer { z-index: 2; }
+.distal-layer { z-index: 3; }
+.close-layer { z-index: 4; }
+.closer-layer { z-index: 5; }
+.text-container { z-index: 6; }
+.sticker-layer { z-index: 7; }
+.proximal-layer { z-index: 8; }
+.frame-layer { z-index: 9; }
 
-/* Image Handling */
 [class*="-layer"] img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Frame-specific styling */
 .frame-layer img {
     object-fit: contain;
-    padding: 100px; /* Maintains your border */
-    pointer-events: none;
+    padding: 100px;
 }
 
-/* Text Container */
 .text-container {
     position: relative;
     width: 80%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 100vh 0 50vh; /* Creates scrolling space */
+    padding: 100vh 0 50vh;
 }
 
 .text-content {
@@ -53,13 +47,11 @@
     backdrop-filter: blur(2px);
 }
 
-/* Stickers */
 .sticker {
     position: absolute;
     max-width: 40%;
     height: auto;
     shape-margin: 1.5rem;
-    z-index: 7;
 }
 
 .sticker-left {
@@ -74,49 +66,21 @@
     shape-outside: margin-box;
 }
 
-/* Mobile Landscape Recommendation */
-.orientation-alert {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
 @media (max-width: 768px) and (orientation: portrait) {
     .orientation-alert {
         display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        padding: 20px;
     }
-    
-    .text-container {
-        width: 90%;
-        padding: 80vh 0 40vh;
-    }
-    
-    .text-content {
-        padding: 1.5rem;
-        font-size: 1rem;
-    }
-}
-
-/* Print Styles (optional) */
-@media print {
-    [class*="-layer"] { display: none !important; }
-    .text-container {
-        padding: 0 !important;
-        width: 100% !important;
-    }
-}
-
-[class*="-layer"] {
-    transition: transform 0.4s ease-out; /* Smoother parallax motion */
 }

@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinkaread | The Trinkaloop Saga</title>
-    <meta name="description" content="An immersive reading experience of The Trinkaloop Saga">
+    <title>Trinkaread | Chapter 1</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/parallax.css">
     <style>
         @font-face {
             font-family: 'ChelseaMarket';
-            src: url('assets/others/fonts/ChelseaMarket_Regular.woff2') format('woff2');
-            font-display: swap;
+            src: url('assets/others/fonts/ChelseaMarket.woff2') format('woff2');
         }
     </style>
 </head>
@@ -23,17 +21,17 @@
     <div class="menu-dots">•••</div>
     <div class="menu-content">
         <button id="sound-toggle">Sound: ON</button>
-        <a href="https://patreon.com/TheTrinkaloopSaga" target="_blank" rel="noopener">Support</a>
+        <a href="https://patreon.com/TheTrinkaloopSaga" target="_blank">Support</a>
         <button id="bookmark-btn">Bookmark</button>
     </div>
 
     <div class="parallax-container">
         <!-- Background Layers -->
-        <div class="sky-layer"><img src="" alt="Sky Background" loading="lazy"></div>
-        <div class="hyperdistal-layer"><img src="" alt="Distant Elements" loading="lazy"></div>
-        <div class="distal-layer"><img src="" alt="Midground Elements" loading="lazy"></div>
-        <div class="close-layer"><img src="" alt="Close Elements" loading="lazy"></div>
-        <div class="closer-layer"><img src="" alt="Closest Background" loading="lazy"></div>
+        <div class="sky-layer"><img src="assets/layers/1sky/01_01_sky.jpg" alt="Sky" loading="lazy"></div>
+        <div class="hyperdistal-layer"><img src="assets/layers/2hyperdistal/01_01_clouds.png" alt="Distant Elements" loading="lazy"></div>
+        <div class="distal-layer"><img src="assets/layers/3distal/01_01_mountains.png" alt="Midground" loading="lazy"></div>
+        <div class="close-layer"><img src="assets/layers/4close/01_01_rocks.png" alt="Nearby Elements" loading="lazy"></div>
+        <div class="closer-layer"><img src="assets/layers/5closer/01_01_trees.png" alt="Closest Background" loading="lazy"></div>
         
         <!-- Content -->
         <div class="text-container">
@@ -43,13 +41,13 @@
         <!-- Foreground -->
         <div class="sticker-layer"></div>
         <div class="proximal-layer"></div>
-        <div class="frame-layer"><img src="" alt="Decorative Frame" loading="lazy"></div>
+        <div class="frame-layer"><img src="assets/layers/9frame/01_01_frame.png" alt="Frame" loading="lazy"></div>
     </div>
 
     <button class="next-chapter-btn">Next Chapter →</button>
 
-    <script src="js/parallax.js" defer></script>
-    <script src="js/scenes.js" defer></script>
-    <script src="js/menu.js" defer></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/scenes.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

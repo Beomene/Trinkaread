@@ -1,12 +1,7 @@
-/* Base Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -14,10 +9,8 @@ body {
     overflow-x: hidden;
     background-color: #000;
     color: white;
-    line-height: 1.6;
 }
 
-/* Loader Styles */
 .loader {
     position: fixed;
     top: 0;
@@ -29,7 +22,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease;
 }
 
 .loader-spinner {
@@ -45,7 +37,6 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Menu System */
 .menu-dots {
     position: fixed;
     top: 20px;
@@ -94,7 +85,6 @@ body {
     background: rgba(255,255,255,0.1);
 }
 
-/* Next Chapter Button */
 .next-chapter-btn {
     position: fixed;
     bottom: 30px;

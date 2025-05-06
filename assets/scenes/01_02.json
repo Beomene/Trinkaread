@@ -1,0 +1,25 @@
+{
+    "sky": "assets/layers/1sky/01_02_sky.jpg",
+    "hyperdistal": "assets/layers/2hyperdistal/01_02_hyperdistal.png",
+    "distal": "assets/layers/3distal/01_02_distal.png",
+    "close": "assets/layers/4close/01_02_close.png",
+    "closer": "assets/layers/5closer/01_02_closer.png",
+    "frame": "assets/layers/9frame/01_02_frame.png",
+    "stickers": [
+        {
+            "image": "assets/layers/7stickers/01_02_stickerA.png",
+            "x": "20%",
+            "y": "200px",
+            "align": "left",
+            "alt": "Foreground object"
+        },
+        {
+            "image": "assets/layers/7stickers/01_02_stickerB.png",
+            "x": "70%",
+            "y": "150px",
+            "align": "right",
+            "alt": "Foreground object"
+        }
+    ],
+    "text": "assets/scenes/01_02_text.md"
+}
