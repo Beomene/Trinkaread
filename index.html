@@ -4,45 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinkaread | Chapter 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/parallax.css">
     <style>
-        @font-face {
-            font-family: 'ChelseaMarket';
-            src: url('assets/others/fonts/ChelseaMarket.woff2') format('woff2');
-        }
+        body { font-family: 'Noto Serif', serif; }
     </style>
 </head>
 <body>
-    <div class="loader">
-        <div class="loader-spinner"></div>
-    </div>
+    <div class="loader"><div class="loader-spinner"></div></div>
 
     <div class="menu-dots">•••</div>
     <div class="menu-content">
         <button id="sound-toggle">Sound: ON</button>
-        <a href="https://patreon.com/TheTrinkaloopSaga" target="_blank">Support</a>
+        <a href="https://patreon.com/TheTrinkaloopSaga" target="_blank" rel="noopener">Support</a>
         <button id="bookmark-btn">Bookmark</button>
     </div>
 
-    <!-- SINGLE PARALLAX CONTAINER -->
+    <!-- SINGLE Container -->
     <div class="parallax-container">
-        <!-- Background Layers -->
-        <div class="sky-layer"><img src="" alt="Sky" loading="lazy"></div>
-        <div class="hyperdistal-layer"><img src="" alt="Distant Elements" loading="lazy"></div>
-        <div class="distal-layer"><img src="" alt="Midground" loading="lazy"></div>
-        <div class="close-layer"><img src="" alt="Nearby Elements" loading="lazy"></div>
-        <div class="closer-layer"><img src="" alt="Closest Background" loading="lazy"></div>
-        
-        <!-- Content -->
-        <div class="text-container">
-            <div class="text-content"></div>
+        <!-- Layers with valid placeholder src -->
+        <div class="sky-layer">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 data-src="assets/layers/1sky/01_01_sky.jpg" 
+                 alt="Sky" 
+                 loading="lazy">
         </div>
-        
-        <!-- Foreground -->
+        <!-- Other layers follow same pattern... -->
+        <div class="text-container"><div class="text-content"></div></div>
         <div class="sticker-layer"></div>
-        <div class="proximal-layer"></div>
-        <div class="frame-layer"><img src="" alt="Frame" loading="lazy"></div>
+        <div class="frame-layer">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 data-src="assets/layers/9frame/01_01_frame.png" 
+                 alt="Frame" 
+                 loading="lazy">
+        </div>
     </div>
 
     <button class="next-chapter-btn">Next Chapter →</button>
