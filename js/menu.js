@@ -33,3 +33,9 @@ window.addEventListener('load', () => {
         window.scrollTo(0, savedPos);
     }
 });
+
+// Next Chapter Button
+document.querySelector('.next-chapter-btn').addEventListener('click', () => {
+    // Implement chapter navigation logic here
+    alert('Next chapter coming soon!');
+});

@@ -2,7 +2,6 @@
 .parallax-container {
     position: relative;
     width: 100%;
-    height: auto;
     min-height: 100vh;
 }
 
@@ -21,28 +20,43 @@
 }
 
 /* Individual Layer Adjustments */
+.sky-layer {
+    z-index: 1;
+}
+
 .sky-layer img {
     width: 100%;
-    height: auto;
-    min-height: 100vh;
+    height: 100vh;
     object-fit: cover;
 }
 
 .hyperdistal-layer {
+    z-index: 2;
     transform: translateY(0);
 }
 
 .distal-layer {
+    z-index: 3;
     transform: translateY(0);
 }
 
-.character-layer img {
+.character-layer {
+    z-index: 4;
+}
+
+.character {
     position: absolute;
     max-width: 30%;
     height: auto;
+    shape-outside: url('../assets/characters/01_01_character.png');
+    shape-margin: 20px;
 }
 
-.proximal-layer img {
+.proximal-layer {
+    z-index: 5;
+}
+
+.proximal-element {
     position: absolute;
     max-width: 100%;
     height: auto;
@@ -54,7 +68,7 @@
     width: 80%;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 100vh 2rem 50vh; /* Vertical spacing */
+    padding: 100vh 2rem 50vh;
     z-index: 10;
 }
 
@@ -66,14 +80,5 @@
     column-gap: 4rem;
     line-height: 1.6;
     font-size: 1.2rem;
-    shape-outside: margin-box;
+    color: white;
 }
-
-/* Text Wrapping Around Characters */
-.character {
-    shape-outside: url('YOUR_CHARACTER_IMAGE_PATH.png');
-    shape-margin: 20px;
-}
-.sky-layer { z-index: 1; }
-.hyperdistal-layer { z-index: 2; }
-.distal-layer { z-index: 3; }

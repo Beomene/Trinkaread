@@ -33,15 +33,12 @@ function initParallax() {
             }
         });
 
-        // Show/hide next chapter button
+        // Show next chapter button at 90% scroll
         const docHeight = document.body.scrollHeight;
         const winHeight = window.innerHeight;
         const scrollPercent = (scrollPos / (docHeight - winHeight)) * 100;
 
-        if (scrollPercent > 90) {
-            document.querySelector('.next-chapter-btn').style.display = 'block';
-        } else {
-            document.querySelector('.next-chapter-btn').style.display = 'none';
-        }
+        document.querySelector('.next-chapter-btn').style.display = 
+            scrollPercent > 90 ? 'block' : 'none';
     });
 }

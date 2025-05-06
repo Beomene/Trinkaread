@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    img-src 'self' data:;
-    style-src 'self' 'unsafe-inline';
-    script-src 'self';
-    connect-src 'self'">
     <title>Trinkaread | Chapter 1</title>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        img-src 'self' data:;
+        style-src 'self' 'unsafe-inline';
+        script-src 'self'">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/parallax.css">
     <style>
@@ -57,9 +56,7 @@
 
         <!-- Text Container -->
         <div class="text-container">
-            <div class="text-content">
-                <!-- Loaded dynamically from scenes/01_01_text.md -->
-            </div>
+            <div class="text-content"></div>
         </div>
 
         <!-- Proximal Layer (Surprise Elements) -->
@@ -68,7 +65,7 @@
         </div>
     </div>
 
-    <!-- Next Chapter Button (Hidden Initially) -->
+    <!-- Next Chapter Button -->
     <button class="next-chapter-btn">Next Chapter →</button>
 
     <!-- Scripts -->
