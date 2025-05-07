@@ -1,0 +1,48 @@
+/* Base Styles */
+body {
+    font-family: 'Noto Serif', serif;
+    background: #000;
+    color: #fff;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Scene Blocks */
+.block {
+    height: 1600px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Parallax Layers */
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+/* Text Window */
+.text-cutout {
+    position: absolute;
+    width: 1080px;
+    height: 800px;
+    left: 50%;
+    top: 400px;
+    transform: translateX(-50%);
+    padding: 40px;
+    background: rgba(40, 30, 50, 0.9);
+    border-radius: 8px;
+    overflow-y: auto;
+    z-index: 6;
+}
+
+/* Layer Depth Order */
+.sky-layer { z-index: 1; }
+.hyperdistal-layer { z-index: 2; }
+.distal-layer { z-index: 3; }
+.close-layer { z-index: 4; }
+.closer-layer { z-index: 5; }
+.sticker { z-index: 6; }
+.proximal-layer { z-index: 7; }
+.frame { z-index: 9; }
