@@ -1,0 +1,17 @@
+{
+    "layers": {
+        "sky": "assets/layers/1sky/01_03_sky.jpg",
+        "hyperdistal": "assets/layers/2hyperdistal/01_03_hyperdistal.png",
+        "distal": "assets/layers/3distal/01_03_distal.png",
+        "close": "assets/layers/4close/01_03_close.png",
+        "closer": "assets/layers/5closer/01_03_closer.png"
+    },
+    "stickers": [
+        {
+            "image": "assets/layers/7sticker/01_03_stickerA.png",
+            "side": "right",
+            "y_offset": "20%"
+        }
+    ],
+    "text": "assets/blocks/01_01_003/text.md"
+}
