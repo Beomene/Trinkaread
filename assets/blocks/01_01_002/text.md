@@ -1,17 +1,15 @@
-# Chapter 1: The Canyon Descent
+# The First Descent
 
-The sandstone walls rose like rusted blades around us, their jagged edges cutting into the twilight. Kael's lantern flickered against the ancient glyphs carved into the stone—warnings or invitations, I couldn't tell. 
+![sticker](assets/layers/7stickers/01_01_stickerA.png)
 
-The Trinkaloop grew heavier with every step downward, its metallic hum syncing with the wind howling through the crevices. My fingers brushed against the amulet's surface, now warm enough to glow faintly through my glove. 
+> "Watch how the light bends here, child."  
+> *- Parallux the Scrollweaver*
 
-*"Watch the third step,"* came the whisper in my mind. Not Kael's voice this time. Something older.
+The canyon walls whispered in cascading stylesheets as Eene took her first step into the Codex. Glyphs floated like dust motes in the hyperdistal layer, each containing entire universes of meaning. She reached out, and the closest ones - the ones marked `!important` - flared crimson.
 
----
+Her oikio Yly bubbled grumpily at her side, carbonation popping with each sarcastic remark. "Oh wonderful, another mortal poking the cosmic stack. Don't come crying to me when your z-index collapses."
 
-The ledge narrowed to a hand's width, the chasm below swallowing the light whole. I pressed against the rockface, grains of sand biting into my cheek. 
-
-Then I saw it—a shadow moving *against* the wind, slithering between the cracks like liquid night. The Trinkaloop pulsed once, twice, and the glyphs ignited in response, casting blue-white light onto the thing clinging to the far wall.
-
-Three eyes blinked in unison. Not a shadow. A guardian.
-
-> "Don't look directly at it!" Kael hissed, but the warning came too late. The last thing I felt was the amulet searing into my palm as the world tilted sideways.
+**Scroll Depth:** 0px  
+**Memory Fragments:**  
+- [ ] The weight of first light  
+- [ ] Sound of compiling promises

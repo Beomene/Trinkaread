@@ -8,7 +8,7 @@
     },
     "stickers": [
         {
-            "image": "assets/layers/7stickers/01_04_stickerA.png",
+            "image": "assets/layers/7sticker/01_04_stickerA.png",
             "side": "right",
             "y_offset": "20%"
         }

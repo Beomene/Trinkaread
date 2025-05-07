@@ -1,0 +1,13 @@
+# ${SCENE_TITLE}
+
+![sticker](assets/layers/7stickers/${SCENE_ID}_stickerA.png)
+
+> "Quote from an Arítari"  
+> *- ${CHARACTER_NAME}*
+
+${LOREM_IPSUM} (150-200 words)
+
+**Scroll Depth:** ${SCROLL_POSITION}px  
+**Memory Fragments:**  
+- [ ] ${DETAIL_1}  
+- [ ] ${DETAIL_2}
