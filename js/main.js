@@ -2,7 +2,7 @@ class TrinkareadEngine {
   constructor() {
     this.scenes = [];
     this.currentScene = 0;
-    this.textScrollRatio = 0.5; // Text moves at 50% speed
+    this.textScrollRatio = 0.5;
     this.init();
   }
 
@@ -16,7 +16,6 @@ class TrinkareadEngine {
   }
 
   async loadPage(pageId) {
-    // Load scene sequence
     this.scenes = [
       `${pageId}_001`,
       `${pageId}_002`,
@@ -25,7 +24,6 @@ class TrinkareadEngine {
       `${pageId}_005`
     ];
     
-    // Load full page text
     const textRes = await fetch(`assets/blocks/${pageId}_page/text.md`);
     this.fullText = await textRes.text();
   }
@@ -51,6 +49,17 @@ class TrinkareadEngine {
       sceneDiv.innerHTML = this.generateLayers(config);
       container.appendChild(sceneDiv);
     }
+
+    // Inject page-level stickers
+    const stickerConfig = await this.loadConfig('01_01_page');
+    stickerConfig.stickers.forEach(sticker => {
+      const img = document.createElement('img');
+      img.src = sticker.image;
+      img.className = `sticker ${sticker.side}`;
+      img.style.width = sticker.width;
+      img.style.top = sticker.y_offset;
+      document.querySelector('.text-content').appendChild(img);
+    });
   }
 
   async loadConfig(sceneId) {
@@ -78,13 +87,11 @@ class TrinkareadEngine {
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       
-      // Scene parallax (fast)
       document.querySelectorAll('.parallax-layer').forEach(layer => {
         const depth = parseFloat(layer.dataset.depth) * 0.2;
         layer.style.transform = `translateY(${scrollY * (1 - depth)}px)`;
       });
       
-      // Text parallax (slow)
       document.querySelector('.global-text-cutout').style.transform = 
         `translateX(-50%) translateY(${scrollY * this.textScrollRatio}px)`;
     });
@@ -95,9 +102,7 @@ class TrinkareadEngine {
     const panel = document.createElement('div');
     panel.className = 'ui-panel';
     panel.innerHTML = `
-      <label>Text Opacity: 
-        <input type="range" min="0.3" max="1" value="0.6" step="0.1">
-      </label>
+      <label>Text Opacity: <input type="range" min="0.3" max="1" value="0.6" step="0.1"></label>
       <button class="audio-toggle">Audio: ON</button>
       <a href="https://patreon.com/trinkaread" target="_blank">Support</a>
     `;
@@ -118,10 +123,7 @@ class TrinkareadEngine {
 
     panel.querySelector('.audio-toggle').addEventListener('click', (e) => {
       const btn = e.target;
-      btn.textContent = btn.textContent.includes('ON') 
-        ? 'Audio: OFF' 
-        : 'Audio: ON';
-      // Audio logic would go here
+      btn.textContent = btn.textContent.includes('ON') ? 'Audio: OFF' : 'Audio: ON';
     });
   }
 
@@ -130,5 +132,4 @@ class TrinkareadEngine {
   }
 }
 
-// Initialize
 const engine = new TrinkareadEngine();
