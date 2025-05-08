@@ -1,43 +1,31 @@
-/* Base Styles */
+/* ===== CORE LAYOUT ===== */
 body {
-    font-family: 'Noto Serif', serif;
-    background: #000;
-    color: #fff;
-    margin: 0;
-    overflow-x: hidden;
+  font-family: 'Noto Serif', serif;
+  background: #000;
+  color: #fff;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-/* Scene Blocks */
+/* Scene container (changed width to 1200px) */
 .block {
-    height: 1600px;
-    position: relative;
-    overflow: hidden;
+  width: 1200px;
+  height: 1600px;
+  margin: 0 auto; /* Centers the scene */
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #222;
 }
 
-/* Parallax Layers */
+/* ===== PARALLAX LAYERS ===== */
 .parallax-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    will-change: transform;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
 }
 
-/* Text Window */
-.text-cutout {
-    position: absolute;
-    width: 1080px;
-    height: 800px;
-    left: 50%;
-    top: 400px;
-    transform: translateX(-50%);
-    padding: 40px;
-    background: rgba(40, 30, 50, 0.9);
-    border-radius: 8px;
-    overflow-y: auto;
-    z-index: 6;
-}
-
-/* Layer Depth Order */
+/* Layer depth order (unchanged) */
 .sky-layer { z-index: 1; }
 .hyperdistal-layer { z-index: 2; }
 .distal-layer { z-index: 3; }
@@ -46,3 +34,31 @@ body {
 .sticker { z-index: 6; }
 .proximal-layer { z-index: 7; }
 .frame { z-index: 9; }
+
+/* ===== TEXT WINDOW (updated dimensions) ===== */
+.text-cutout {
+  position: absolute;
+  width: 800px; /* Reduced from 1080px */
+  height: 600px; /* Reduced from 800px */
+  left: 50%;
+  top: 200px; /* Lowered from 400px */
+  transform: translateX(-50%);
+  padding: 30px;
+  background: rgba(40, 30, 50, 0.85);
+  border-radius: 8px;
+  overflow-y: auto;
+  z-index: 6;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== LOADER (optional) ===== */
+.loader {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 999;
+}
