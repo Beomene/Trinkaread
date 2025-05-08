@@ -2,43 +2,55 @@ class TrinkareadEngine {
   constructor() {
     this.scenes = [];
     this.currentScene = 0;
-    this.sceneHeight = 1600;
+    this.textScrollRatio = 0.5; // Text moves at 50% speed
     this.init();
   }
 
   async init() {
-    await this.loadSceneSequence('01_01');
-    this.renderScene(0);
-    this.setupInertialScroll();
+    await this.loadPage('01_01');
+    this.createTextContainer();
+    this.renderScenes();
+    this.setupParallax();
+    this.setupUI();
     this.hideLoader();
   }
 
-  async loadSceneSequence(chapterPage) {
+  async loadPage(pageId) {
+    // Load scene sequence
     this.scenes = [
-      `${chapterPage}_001`,
-      `${chapterPage}_002`,
-      `${chapterPage}_003`,
-      `${chapterPage}_004`,
-      `${chapterPage}_005`
+      `${pageId}_001`,
+      `${pageId}_002`,
+      `${pageId}_003`,
+      `${pageId}_004`,
+      `${pageId}_005`
     ];
+    
+    // Load full page text
+    const textRes = await fetch(`assets/blocks/${pageId}_page/text.md`);
+    this.fullText = await textRes.text();
   }
 
-  async renderScene(index) {
-    const sceneId = this.scenes[index];
-    const config = await this.loadConfig(sceneId);
-    const text = await this.loadText(config.text);
-    
+  createTextContainer() {
     document.getElementById('page-container').innerHTML = `
-      <div class="block" data-scene="${sceneId}">
-        ${this.generateLayers(config)}
-        <div class="text-cutout">
-          ${text}
-        </div>
+      <div class="scenes-container" id="scenes-container"></div>
+      <div class="global-text-cutout">
+        <div class="text-content">${this.fullText}</div>
       </div>
+      <div class="ui-menu">☰</div>
     `;
+  }
+
+  async renderScenes() {
+    const container = document.getElementById('scenes-container');
     
-    this.currentScene = index;
-    window.scrollTo(0, this.sceneHeight * index);
+    for (const sceneId of this.scenes) {
+      const config = await this.loadConfig(sceneId);
+      const sceneDiv = document.createElement('div');
+      sceneDiv.className = 'block';
+      sceneDiv.dataset.scene = sceneId;
+      sceneDiv.innerHTML = this.generateLayers(config);
+      container.appendChild(sceneDiv);
+    }
   }
 
   async loadConfig(sceneId) {
@@ -46,61 +58,71 @@ class TrinkareadEngine {
     return await res.json();
   }
 
-  async loadText(textPath) {
-    const res = await fetch(textPath);
-    return await res.text();
-  }
-
   generateLayers(config) {
     let layers = '';
     
-    // Standard layers
     ['sky', 'hyperdistal', 'distal', 'close', 'closer'].forEach(layer => {
       if (config.layers[layer]) {
         layers += `
-          <div class="${layer}-layer parallax-layer">
+          <div class="${layer}-layer parallax-layer" data-depth="${layer.charAt(0)}">
             <img src="${config.layers[layer]}" alt="${layer} layer">
           </div>
         `;
       }
     });
 
-    // Stickers
-    if (config.stickers) {
-      config.stickers.forEach(sticker => {
-        layers += `
-          <img class="sticker" src="${sticker.image}" 
-               style="${sticker.side || 'left'}: 50px; 
-                      top: ${sticker.y_offset || '30%'};">
-        `;
-      });
-    }
-
     return layers;
   }
 
-  setupInertialScroll() {
-    let velocity = 0;
-    let damping = 0.93;
-    let isScrolling = false;
-
-    window.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      velocity += e.deltaY * 0.2;
-      if (!isScrolling) requestAnimationFrame(scrollTick);
-    }, { passive: false });
-
-    const scrollTick = () => {
-      isScrolling = true;
-      velocity *= damping;
-      window.scrollBy(0, velocity);
+  setupParallax() {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
       
-      if (Math.abs(velocity) > 0.5) {
-        requestAnimationFrame(scrollTick);
-      } else {
-        isScrolling = false;
-      }
-    };
+      // Scene parallax (fast)
+      document.querySelectorAll('.parallax-layer').forEach(layer => {
+        const depth = parseFloat(layer.dataset.depth) * 0.2;
+        layer.style.transform = `translateY(${scrollY * (1 - depth)}px)`;
+      });
+      
+      // Text parallax (slow)
+      document.querySelector('.global-text-cutout').style.transform = 
+        `translateX(-50%) translateY(${scrollY * this.textScrollRatio}px)`;
+    });
+  }
+
+  setupUI() {
+    const menu = document.querySelector('.ui-menu');
+    const panel = document.createElement('div');
+    panel.className = 'ui-panel';
+    panel.innerHTML = `
+      <label>Text Opacity: 
+        <input type="range" min="0.3" max="1" value="0.6" step="0.1">
+      </label>
+      <button class="audio-toggle">Audio: ON</button>
+      <a href="https://patreon.com/trinkaread" target="_blank">Support</a>
+    `;
+    document.body.appendChild(panel);
+
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      panel.classList.toggle('visible');
+    });
+
+    document.addEventListener('click', () => {
+      panel.classList.remove('visible');
+    });
+
+    panel.querySelector('input').addEventListener('input', (e) => {
+      document.querySelector('.global-text-cutout').style.opacity = e.target.value;
+    });
+
+    panel.querySelector('.audio-toggle').addEventListener('click', (e) => {
+      const btn = e.target;
+      btn.textContent = btn.textContent.includes('ON') 
+        ? 'Audio: OFF' 
+        : 'Audio: ON';
+      // Audio logic would go here
+    });
   }
 
   hideLoader() {

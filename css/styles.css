@@ -7,58 +7,83 @@ body {
   overflow-x: hidden;
 }
 
-/* Scene container (changed width to 1200px) */
+/* Scene container */
 .block {
   width: 1200px;
   height: 1600px;
-  margin: 0 auto; /* Centers the scene */
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
   border-bottom: 3px solid #222;
 }
 
-/* ===== PARALLAX LAYERS ===== */
-.parallax-layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  will-change: transform;
-}
-
-/* Layer depth order (unchanged) */
-.sky-layer { z-index: 1; }
-.hyperdistal-layer { z-index: 2; }
-.distal-layer { z-index: 3; }
-.close-layer { z-index: 4; }
-.closer-layer { z-index: 5; }
-.sticker { z-index: 6; }
-.proximal-layer { z-index: 7; }
-.frame { z-index: 9; }
-
-/* ===== TEXT WINDOW (updated dimensions) ===== */
-.text-cutout {
-  position: absolute;
-  width: 800px; /* Reduced from 1080px */
-  height: 600px; /* Reduced from 800px */
+/* Unified text container */
+.global-text-cutout {
+  position: fixed;
+  width: 800px;
   left: 50%;
-  top: 200px; /* Lowered from 400px */
+  top: 50px;
   transform: translateX(-50%);
   padding: 30px;
-  background: rgba(40, 30, 50, 0.85);
+  background: rgba(40, 30, 50, 0.6);
   border-radius: 8px;
-  overflow-y: auto;
   z-index: 6;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  transition: opacity 0.3s;
 }
 
-/* ===== LOADER (optional) ===== */
-.loader {
-  display: none; /* Hidden by default */
+/* Sticker text wrapping */
+.sticker {
+  float: left;
+  shape-outside: margin-box;
+  shape-margin: 15px;
+  margin: 0 20px 20px 0;
+}
+
+.sticker.right {
+  float: right;
+  margin: 0 0 20px 20px;
+}
+
+/* UI Controls */
+.ui-menu {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  background: rgba(0,0,0,0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.ui-panel {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  padding: 15px;
+  border-radius: 8px;
+  display: none;
+  width: 200px;
+}
+
+.ui-panel.visible {
+  display: block;
+}
+
+.ui-panel label, .ui-panel a {
+  display: block;
+  margin: 10px 0;
+  color: white;
+  text-decoration: none;
+}
+
+.ui-panel input[type="range"] {
   width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 999;
 }

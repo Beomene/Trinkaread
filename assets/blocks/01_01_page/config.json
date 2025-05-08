@@ -1,0 +1,16 @@
+{
+  "stickers": [
+    {
+      "image": "assets/layers/7stickers/01_01_stickerA.png",
+      "side": "left",
+      "y_offset": "20%",
+      "width": "200px"
+    },
+    {
+      "image": "assets/layers/7stickers/01_01_stickerB.png",
+      "side": "right",
+      "y_offset": "45%",
+      "width": "250px"
+    }
+  ]
+}
